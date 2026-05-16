@@ -23,7 +23,7 @@
 // element+=i
 // }
 // 	return element
-	
+
 // }
 // console.log(sumTo(5));
 
@@ -45,15 +45,18 @@
 // ● isPrime(1) → false
 // ● isPrime(17) → true
 
-function isPrime(n) {
-	if (n/n==1 && n/1  ){
-		return true
-	}else{
-		return false
-	}
-}
-console.log(isPrime(8));
-
+// function isPrime(n) {
+//     if (n <= 1) {
+//         return false
+//     }
+//     for (let i = 2; i * i <= n; i++) {
+//         if (n % i === 0) {
+//             return false
+//     }
+//     }
+//     return true;
+// }
+// console.log(isPrime(17));
 
 //============================================================================================================
 
@@ -69,6 +72,16 @@ console.log(isPrime(8));
 // ● reverseStr("salom") → "molas"
 // ● reverseStr("abc") → "cba"
 // ● reverseStr("") → ""
+
+// function  reverseStr(str) {
+// 	let element =""
+// 	for (let i = str.length-1;i>= 0; i--) {
+// 		element += str[i];
+
+// 	}
+// return element
+// }
+// console.log(reverseStr("salom"));
 
 // ============================================================================================================
 
@@ -86,6 +99,20 @@ console.log(isPrime(8));
 // ● countVowels("JAVA") → 2 (A, A)
 // ● countVowels("bbb") → 0
 
+// function countVowels(str) {
+// 	let count = 0
+// 	let unli = 'aeiou'
+// 	for (let i = 0; i < str.length; i++) {
+// 		let harf = str[i].toLowerCase()
+// 		if (unli.includes(harf)) {
+// 			console.log( harf)
+// 			count++
+// 		}
+// 	}
+// 	return count
+// }
+// console.log(countVowels('salom'))
+
 // ================================================================================================================
 
 // 5) findMax(arr) — eng katta sonni topish
@@ -102,6 +129,20 @@ console.log(isPrime(8));
 // ● findMax([-10, -3, -7]) → -3
 // ● findMax([]) → null
 
+// function findMax(arr) {
+//     if (arr.length === 0) {
+//         return null;
+//     }
+//     let max = arr[0];
+//     for (let i = 1; i < arr.length; i++) {
+//         if (arr[i] > max) {
+//             max = arr[i];
+//         }
+//     }
+//     return max;
+// }
+// console.log(findMax([-10, -3, -7]))
+
 //============================================================================================================
 
 // 6) To‘liq CRUD masala (bitta data bilan)
@@ -114,6 +155,66 @@ console.log(isPrime(8));
 // score: 85
 // }
 // Siz students bilan ishlaydigan 4 ta asosiy CRUD function yozishingiz kerak.
+// Boshlang'ich ma'lumotlar ombori (Data)
+
+// let students = [
+// 	{
+// 		name: 'Ali',
+// 		age: 16,
+// 		score: 85,
+// 	},
+// 	{
+// 		name: 'Vali',
+// 		age: 17,
+// 		score: 90,
+// 	},
+// ]
+
+// function addStudent(name, age, score) {
+// 	let newStudent =
+// 	 {
+// 		name: name,
+// 		age: age,
+// 		score: score
+// 	}
+// 	students.push(newStudent)
+// }
+
+// function Students() {
+// 	return students
+// }
+
+// function studentScore(name, newScore) {
+// 	for (let i = 0; i < students.length; i++) {
+// 		if (students[i].name === name) {
+// 			students[i].score = newScore
+// 			return
+// 		}
+// 	}
+// }
+
+// function deleteStudent(name) {
+// 	let index = -1
+// 	for (let i = 0; i < students.length; i++) {
+// 		if (students[i].name === name) {
+// 			index = i
+// 			break
+// 		}
+// 	}
+
+// 	if (index !== -1) {
+// 		students.splice(index, 1)
+// 	}
+// }
+
+// addStudent('Sardor', 18, 95)
+// console.log(Students())
+
+// studentScore('Sarvar', 98)
+// console.log(Students())
+
+// deleteStudent('Kamol')
+// console.log(Students())
 
 // =============================================================================================================
 // 6.1) CREATE — createStudent(name, age, score)
@@ -127,10 +228,50 @@ console.log(isPrime(8));
 // ○ array bo‘sh bo‘lsa id = 1
 // ○ aks holda oxirgi element id + 1
 // ● yangi student objectni arrayga qo‘shing va o‘sha objectni return qiling.
-// 6.2) READ — getStudentById(id)
+
+// let students = []
+// function createStudent(name, age, score) {
+// 	if (!name || name.trim() === '') {
+// 		return 'Invalid name'
+// 	}
+
+// 	if (age < 5) {
+// 		return 'Invalid age'
+// 	}
+
+// 	if (score < 0 || score > 100) {
+// 		return 'Invalid score'
+// 	}
+
+// 	let id
+// 	if (students.length === 0) {
+// 		id = 1
+// 	} else {
+// 		let lastIndex = students.length - 1
+// 		id = students[lastIndex].id + 1
+// 	}
+
+// 	let yangiStudent = {
+// 		id: id,
+// 		name: name,
+// 		age: age,
+// 		score: score,
+// 	}
+
+// 	students.push(yangiStudent)
+// 	return yangiStudent
+// }
+
+// console.log(createStudent('Bunyod', 16, 85))
+// console.log(createStudent('Suhrob', 17, 90))
+// console.log(createStudent('Sevara', 3, 70))
+// console.log(createStudent('Malika', 15, 120))
+
+// console.log(students)
 
 // ==========================================================================================================
 
+// 6.2) READ — getStudentById(id)
 // Vazifa:
 // id bo‘yicha studentni topib qaytaring.
 // Shartlar:
