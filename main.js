@@ -277,6 +277,16 @@
 // Shartlar:
 // ● topilsa student objectni return qiling.
 // ● topilmasa null qaytaring.
+// function getStudentById(id) {
+//     for (let i = 0; i < students.length; i++) {
+//         if (students[i].id === id) {
+//             return students[i];
+//         }
+//     }
+//     return null;
+// }
+// console.log(getStudentById(1)); 
+// console.log(getStudentById(99)); 
 
 // ==========================================================================================================
 // 6.3) UPDATE — updateStudent(id, data)
@@ -291,7 +301,49 @@
 // ○ name bo‘sh bo‘lsa "Invalid name"
 // ○ age 5 dan kichik bo‘lsa "Invalid age"
 // ○ score 0..100 oralig‘ida bo‘lmasa "Invalid score"
+// function updateStudent(id, data) {
+//     let student = null;
+    
+//     for (let i = 0; i < students.length; i++) {
+//         if (students[i].id === id) {
+//             student = students[i];
+//             break;
+//         }
+//     }
 
+//     if (!student) {
+//         return "Student not found";
+//     }
+
+//     if (data.name !== undefined) {
+//         if (!data.name || data.name.trim() === "") {
+//             return "Invalid name";
+//         }
+//     }
+
+//     if (data.age !== undefined) {
+//         if (data.age < 5) {
+//             return "Invalid age";
+//         }
+//     }
+
+//     if (data.score !== undefined) {
+//         if (data.score < 0 || data.score > 100) {
+//             return "Invalid score";
+//         }
+//     }
+
+//     if (data.name !== undefined) student.name = data.name;
+//     if (data.age !== undefined) student.age = data.age;
+//     if (data.score !== undefined) student.score = data.score;
+
+//     return student;
+// }
+
+
+// console.log(updateStudent(1, { score: 95 }));       
+// console.log(updateStudent(1, { name: "", age: 20 })); 
+// console.log(updateStudent(99, { age: 20 }));         
 // ======================================================================================================
 
 // 6.4) DELETE — deleteStudent(id)
@@ -300,3 +352,27 @@
 // Shartlar:
 // ● agar topilsa, arraydan o‘chirib, o‘chirilgan studentni return qiling
 // ● topilmasa null qaytaring
+// function deleteStudent(id) {
+//     let index = -1;
+
+//     for (let i = 0; i < students.length; i++) {
+//         if (students[i].id === id) {
+//             index = i;
+//             break;
+//         }
+//     }
+
+//     if (index === -1) {
+//         return null;
+//     }
+
+//     let deletedStudent = students[index];
+
+//     students.splice(index, 1);
+
+//     return deletedStudent;
+// }
+
+
+// console.log(deleteStudent(1)); 
+// console.log(deleteStudent(99)); 
